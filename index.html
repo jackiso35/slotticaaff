@@ -20,6 +20,13 @@
             min-height: 100vh;
         }
 
+        /* Sayfanın içeriği ve footer'ı esnek şekilde ayırmak için */
+        .content {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
         /* Header Stil */
         header {
             display: flex;
@@ -94,8 +101,7 @@
             background-color: #fff;
             border-radius: 8px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            /* Sabit yükseklik ve kaydırma */
-            height: 300px;
+            flex-grow: 1; /* Boş alanı doldur */
             overflow-y: auto;
         }
 
@@ -127,7 +133,6 @@
 
         /* Footer Stil */
         footer {
-            margin-top: auto;
             background-color: #333;
             color: white;
             text-align: center;
@@ -197,54 +202,56 @@
 </head>
 <body>
 
-    <!-- Header -->
-    <header>
-        <h1>Dashboard</h1>
-        <div class="profile-icon">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg>
-        </div>
-    </header>
-
-    <div class="date-settings-container">
-        <div class="date-box">
-            <div class="date-icon">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 4h-1V2h-2v2H8V2H6v2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 16H5V10h14v10zM5 8V6h14v2H5zm4 4h5v5H9v-5z"/></svg>
+    <div class="content">
+        <!-- Header -->
+        <header>
+            <h1>Dashboard</h1>
+            <div class="profile-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg>
             </div>
-            <div class="date-range">
-                <span>2024-10-01 - 2024-10-07</span>
+        </header>
+
+        <div class="date-settings-container">
+            <div class="date-box">
+                <div class="date-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 4h-1V2h-2v2H8V2H6v2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 16H5V10h14v10zM5 8V6h14v2H5zm4 4h5v5H9v-5z"/></svg>
+                </div>
+                <div class="date-range">
+                    <span>2024-10-01 - 2024-10-07</span>
+                </div>
+            </div>
+            <div class="settings-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8.25A3.75 3.75 0 1 1 12 15.75 3.75 3.75 0 0 1 12 8.25m0-2A5.75 5.75 0 1 0 12 17.75 5.75 5.75 0 0 0 12 6.25Zm7.325 12.325a1.25 1.25 0 0 1 1.775 0l.9.9a1.25 1.25 0 0 1 0 1.775l-.9.9a1.25 1.25 0 0 1-1.775 0l-.9-.9a1.25 1.25 0 0 1 0-1.775l.9-.9ZM6.775 5.675a1.25 1.25 0 0 1-1.775 0l-.9-.9a1.25 1.25 0 0 1 0-1.775l.9-.9a1.25 1.25 0 0 1 1.775 0l.9.9a1.25 1.25 0 0 1 0 1.775l-.9.9ZM6.775 18.325a1.25 1.25 0 0 1-1.775 0l-.9-.9a1.25 1.25 0 0 1 0-1.775l.9-.9a1.25 1.25 0 0 1 1.775 0l.9.9a1.25 1.25 0 0 1 0 1.775l-.9.9ZM17.325 5.675a1.25 1.25 0 0 1-1.775 0l-.9-.9a1.25 1.25 0 0 1 0-1.775l.9-.9a1.25 1.25 0 0 1 1.775 0l.9.9a1.25 1.25 0 0 1 0 1.775l-.9.9Z"/></svg>
             </div>
         </div>
-        <div class="settings-icon">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8.25A3.75 3.75 0 1 1 12 15.75 3.75 3.75 0 0 1 12 8.25m0-2A5.75 5.75 0 1 0 12 17.75 5.75 5.75 0 0 0 12 6.25Zm7.325 12.325a1.25 1.25 0 0 1 1.775 0l.9.9a1.25 1.25 0 0 1 0 1.775l-.9.9a1.25 1.25 0 0 1-1.775 0l-.9-.9a1.25 1.25 0 0 1 0-1.775l.9-.9ZM6.775 5.675a1.25 1.25 0 0 1-1.775 0l-.9-.9a1.25 1.25 0 0 1 0-1.775l.9-.9a1.25 1.25 0 0 1 1.775 0l.9.9a1.25 1.25 0 0 1 0 1.775l-.9.9ZM6.775 18.325a1.25 1.25 0 0 1-1.775 0l-.9-.9a1.25 1.25 0 0 1 0-1.775l.9-.9a1.25 1.25 0 0 1 1.775 0l.9.9a1.25 1.25 0 0 1 0 1.775l-.9.9ZM17.325 5.675a1.25 1.25 0 0 1-1.775 0l-.9-.9a1.25 1.25 0 0 1 0-1.775l.9-.9a1.25 1.25 0 0 1 1.775 0l.9.9a1.25 1.25 0 0 1 0 1.775l-.9.9Z"/></svg>
-        </div>
-    </div>
 
-    <div class="table-container">
-        <table>
-            <thead>
-                <tr>
-                    <th>Click</th>
-                    <th>Regs</th>
-                    <th>FTD</th>
-                    <th>Deposits</th>
-                    <th>Net revenue</th>
-                    <th>Regs/FTD</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td data-label="Click">0</td>
-                    <td data-label="Regs">0</td>
-                    <td data-label="FTD">0</td>
-                    <td data-label="Deposits">0 €</td>
-                    <td data-label="Net revenue">0 €</td>
-                    <td data-label="Regs/FTD">0</td>
-                </tr>
-                <tr class="campaign-row">
-                    <td colspan="6">Slottica CPA</td>
-                </tr>
-            </tbody>
-        </table>
+        <div class="table-container">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Click</th>
+                        <th>Regs</th>
+                        <th>FTD</th>
+                        <th>Deposits</th>
+                        <th>Net revenue</th>
+                        <th>Regs/FTD</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td data-label="Click">0</td>
+                        <td data-label="Regs">0</td>
+                        <td data-label="FTD">0</td>
+                        <td data-label="Deposits">0 €</td>
+                        <td data-label="Net revenue">0 €</td>
+                        <td data-label="Regs/FTD">0</td>
+                    </tr>
+                    <tr class="campaign-row">
+                        <td colspan="6">Slottica CPA</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
     </div>
 
     <!-- Footer -->
