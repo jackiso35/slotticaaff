@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive Table</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f9f9f9;
+            padding: 20px;
+        }
+
+        /* Header Stil */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 20px;
+            background-color: #333;
+            color: white;
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+
+        header h1 {
+            font-size: 24px;
+        }
+
+        .profile-icon {
+            cursor: pointer;
+        }
+
+        .profile-icon svg {
+            width: 32px;
+            height: 32px;
+            fill: white;
+        }
+
+        .date-settings-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+
+        .date-box {
+            display: flex;
+            align-items: center;
+            background-color: #f0f0f0;
+            padding: 10px 15px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .date-icon {
+            margin-right: 10px;
+        }
+
+        .date-icon svg {
+            width: 24px;
+            height: 24px;
+            fill: #333;
+        }
+
+        .date-range {
+            font-size: 16px;
+            color: #333;
+        }
+
+        .settings-icon {
+            cursor: pointer;
+        }
+
+        .settings-icon svg {
+            width: 24px;
+            height: 24px;
+            fill: #333;
+        }
+
+        .table-container {
+            width: 100%;
+            max-width: 800px;
+            margin: auto;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            /* Sabit yükseklik ve kaydırma */
+            height: 300px;
+            overflow-y: auto;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 0;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        thead th {
+            background-color: #333;
+            color: white;
+            padding: 10px;
+            text-align: left;
+        }
+
+        tbody td {
+            padding: 10px;
+            text-align: left;
+            border-bottom: 1px solid #e0e0e0;
+        }
+
+        .campaign-row {
+            background-color: #f9f9f9;
+            font-weight: bold;
+        }
+
+        @media (max-width: 600px) {
+            table {
+                display: block;
+            }
+
+            thead {
+                display: none;
+            }
+
+            tbody, tr, td {
+                display: block;
+                width: 100%;
+            }
+
+            tr {
+                margin-bottom: 15px;
+            }
+
+            td {
+                padding: 10px;
+                position: relative;
+                text-align: left;
+                border: none;
+                border-bottom: 1px solid #e0e0e0;
+            }
+
+            td:before {
+                content: attr(data-label);
+                font-weight: bold;
+                text-transform: uppercase;
+                position: relative;
+                display: block;
+                margin-bottom: 5px;
+                color: #333;
+            }
+
+            td:last-child {
+                border-bottom: 2px solid #333;
+            }
+
+            /* Para miktarları için font boyutunu artır */
+            td[data-label="Deposits"],
+            td[data-label="Net revenue"] {
+                font-size: 16px;
+                color: #000;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <header>
+        <h1>Dashboard</h1>
+        <div class="profile-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg>
+        </div>
+    </header>
+
+    <div class="date-settings-container">
+        <div class="date-box">
+            <div class="date-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 4h-1V2h-2v2H8V2H6v2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 16H5V10h14v10zM5 8V6h14v2H5zm4 4h5v5H9v-5z"/></svg>
+            </div>
+            <div class="date-range">
+                <span>2024-10-01 - 2024-10-07</span>
+            </div>
+        </div>
+        <div class="settings-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8.25A3.75 3.75 0 1 1 12 15.75 3.75 3.75 0 0 1 12 8.25m0-2A5.75 5.75 0 1 0 12 17.75 5.75 5.75 0 0 0 12 6.25Zm7.325 12.325a1.25 1.25 0 0 1 1.775 0l.9.9a1.25 1.25 0 0 1 0 1.775l-.9.9a1.25 1.25 0 0 1-1.775 0l-.9-.9a1.25 1.25 0 0 1 0-1.775l.9-.9ZM6.775 5.675a1.25 1.25 0 0 1-1.775 0l-.9-.9a1.25 1.25 0 0 1 0-1.775l.9-.9a1.25 1.25 0 0 1 1.775 0l.9.9a1.25 1.25 0 0 1 0 1.775l-.9.9ZM6.775 18.325a1.25 1.25 0 0 1-1.775 0l-.9-.9a1.25 1.25 0 0 1 0-1.775l.9-.9a1.25 1.25 0 0 1 1.775 0l.9.9a1.25 1.25 0 0 1 0 1.775l-.9.9ZM17.325 5.675a1.25 1.25 0 0 1-1.775 0l-.9-.9a1.25 1.25 0 0 1 0-1.775l.9-.9a1.25 1.25 0 0 1 1.775 0l.9.9a1.25 1.25 0 0 1 0 1.775l-.9.9Z"/></svg>
+        </div>
+    </div>
+
+    <div class="table-container">
+        <table>
+            <thead>
+                <tr>
+                    <th>Click</th>
+                    <th>Regs</th>
+                    <th>FTD</th>
+                    <th>Deposits</th>
+                    <th>Net revenue</th>
+                    <th>Regs/FTD</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td data-label="Click">13421</td>
+                    <td data-label="Regs">1451</td>
+                    <td data-label="FTD">702</td>
+                    <td data-label="Deposits">67,621 €</td>
+                    <td data-label="Net revenue">28,530 €</td>
+                    
+                </tr>
+                <tr class="campaign-row">
+                    <td colspan="6">Slottica TR-TG</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+</body>
+</html>
